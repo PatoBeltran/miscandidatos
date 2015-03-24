@@ -47,6 +47,9 @@ end
 
 gem 'figaro'
 gem 'unicorn'
+gem 'annotate'
+gem 'devise'
+
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
@@ -71,4 +74,3 @@ group :development do
   gem 'binding_of_caller'
 end
 
-gem 'devise'
