@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,100,800,500,400,300' rel='stylesheet' type='text/css'>
 
-  <title>Miscandidatos</title>
+  <title>MisCandidatos</title>
 
   <!-- Furatto core CSS -->
   <%= stylesheet_link_tag "application", :cache => true %>
@@ -21,6 +21,26 @@
 </head>
 
 <body>
+  <nav class="navigation-bar container">
+   <ul class="brand-section">
+     <li class="brand-name">
+      <a href="/" class="menu-trigger" id="trigger">Logo</a>
+     </li>
+     <li class="menu-toggle">
+      <a href="#">Menu</a>
+     </li>
+   </ul>
+   <ul class="pull-right">
+     <li class="divider"></li>
+     <li><a href="#">Perfiles</a></li>
+     <li class="divider"></li>
+     <li><a href="/docs">Marco Legal</a></li>
+     <li class="divider"></li>
+     <li><a href="/docs">Formas de financiamiento</a></li>
+     <li class="divider"></li>
+     <li><a href="/docs">Reglas de candidatura</a></li>
+   </ul>
+  </nav>
   <% flash.each do |key, value| %>
     <div class="alert <%= key %>">
       <a href="#" class="close">x</a>

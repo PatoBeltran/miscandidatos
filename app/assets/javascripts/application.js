@@ -12,5 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require furatto
+//= require furatto.min
 //= require_tree .
