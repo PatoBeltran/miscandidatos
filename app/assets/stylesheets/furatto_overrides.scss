@@ -382,7 +382,7 @@
 /*@variables*/
 
 /*Navigation general settings*/
-/*$navigation-bar-background: #191818 !default;*/
+$navigation-bar-background: #0090FF;
 /*$navigation-margin-bottom: 10px !default;*/
 /*$navigation-bar-color: #FFF !default;*/
 /*$navigation-bar-font-weight: 300 !default;*/
@@ -403,7 +403,9 @@
 
 /*Buttons settings*/
 /*$navigation-bar-button-font-size: $navigation-font-size !default;*/
-/*$navigation-bar-button-height: 35px !default;*/
+$navigation-bar-button-height: 60px;
+$navigation-bar-height: 60px;
+$navigation-margin-bottom: 0;
 /*$navigation-bar-button-margin-left: px-to-rems(8) !default;*/
 /*$navigation-bar-button-margin-right: px-to-rems(8) !default;*/
 /*$navigation-bar-menu-color: #FFF !default;*/
