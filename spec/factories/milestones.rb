@@ -9,7 +9,7 @@
 #  candidate_id :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  modified_by  :text
+#  modified_by  :text             default("--- []\n")
 #
 
 FactoryGirl.define do

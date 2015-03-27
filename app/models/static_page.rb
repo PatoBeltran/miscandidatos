@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: static_pages
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  title       :string
+#  content     :text
+#  modified_by :text             default("--- []\n")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+class StaticPage < ActiveRecord::Base
+  #Modified_by format: [{user_id: , date: }, ...]
+  serialize :modified_by
+
+  validates :name, :content, :modified_by, :title, presence: true
+end

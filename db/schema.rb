@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324173453) do
+ActiveRecord::Schema.define(version: 20150327012721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150324173453) do
     t.integer  "political_party_id"
     t.integer  "geographical_area_id"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.text     "modified_by"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.text     "modified_by",          default: "--- []\n"
   end
 
   create_table "geographical_areas", force: :cascade do |t|
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20150324173453) do
     t.text     "proposals"
     t.text     "accomplished"
     t.integer  "candidate_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.text     "modified_by"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.text     "modified_by",  default: "--- []\n"
   end
 
   create_table "political_parties", force: :cascade do |t|
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20150324173453) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "abbreviation"
+  end
+
+  create_table "static_pages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.text     "modified_by", default: "--- []\n"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
