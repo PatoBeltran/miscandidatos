@@ -11,7 +11,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module Printoo
+module MisCandidatos
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -37,7 +37,6 @@ module Printoo
     end
 
     config.i18n.default_locale = :es
-    
     config.autoload_paths += %W(#{config.root}/lib)
   end
 end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
-gem 'rails', '4.2.0'
+ruby '2.1.0'
+gem 'rails', '4.0.4'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -9,11 +9,11 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'sass-rails',    '~> 4.0.0'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', "~> 1.1.6" # not relevant for this case,
+gem 'sass-rails', '4.0.2'
+gem 'sprockets', '~>2.11.0'
 gem 'furatto'
 gem 'font-awesome-sass'
-gem 'sprockets', '2.11'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

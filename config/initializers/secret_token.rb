@@ -1,0 +1,1 @@
+MisCandidatos::Application.config.secret_key_base = '5334bf6fa1552a1adf6504604497318714dcb6bb51683fd963e656fd203b84d7d211649d7fd5d938ee10adf38b5d690f5892ac4210de7cbeeed5c9b7f5181697'
