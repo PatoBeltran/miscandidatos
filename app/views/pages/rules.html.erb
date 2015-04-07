@@ -1,0 +1,14 @@
+<div class="wrapper container">
+  <h1>
+    <%= @page.title %>
+    <% if user_signed_in? %>
+      <%= link_to rules_edit_path do %>
+        <%= fa_icon "pencil-square-o" %>
+      <% end %>
+    <% end %>
+  </h1>
+  <div class="static-page-content">
+    <%= @page.content.html_safe %>
+  </div>
+</div>
+

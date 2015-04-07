@@ -1,0 +1,36 @@
+<div class="candidate-areas">
+  <% @areas.each do |area| %>
+    <% if area.name == "Gubernatura" %>
+      <div class="area area-main"><%= link_to area.name, profiles_governor_path %></div>
+    <% elsif  area.name == "Alcaldía" %>
+      <div class="area"><%= link_to area.name, profiles_mayor_path %></div>
+    <% else %>
+      <div class="area"><%= link_to area.name, profiles_deputy_path %></div>
+    <% end %>
+  <% end %>
+</div>
+<div class="candidate-filters">
+ <% @filters.each do |filter| %>
+    <div class="filters"><%= filter.abbreviation %></div>
+  <% end %>
+</div>
+<div class="wrapper container row">
+  <% @candidates.each do |candidate| %>
+    <div class="row-3">
+      <div class="image-wrapper">
+        <%= image_tag "" %>
+      </div>
+      <div class="name-wrapper">
+        <div class="inner-name">
+          <%= candidate.name %>
+        </div>
+        <div class="political-party-abbreviation">
+          <%= candidate.political_party.abbreviation %>
+        </div>
+      </div>
+      <div class="category-color" style="background-color: <%= "#ff0000" %>">
+      </div>
+    </div>
+  <% end %>
+</div>
+

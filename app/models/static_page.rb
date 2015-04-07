@@ -15,5 +15,5 @@ class StaticPage < ActiveRecord::Base
   #Modified_by format: [{user_id: , date: }, ...]
   serialize :modified_by
 
-  validates :name, :content, :modified_by, :title, presence: true
+  validates :name, :content, :title, presence: true
 end

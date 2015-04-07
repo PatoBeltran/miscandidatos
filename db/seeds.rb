@@ -31,9 +31,9 @@ GeographicalArea.create({ state: "Nuevo León", city: "Escobedo" })
 GeographicalArea.create({ state: "Nuevo León", city: "Santiago" })
 GeographicalArea.create({ state: "Nuevo León", city: "García" })
 
-StaticPage.create({ name: "legal", content: "" })
-StaticPage.create({ name: "finance", content: "" })
-StaticPage.create({ name: "rules", content: "" })
+StaticPage.create({ name: "legal", content: "legal", title: "legal", modified_by: [] })
+StaticPage.create({ name: "finance", content: "finance", title: "finance", modified_by: [] })
+StaticPage.create({ name: "rules", content: "rules", title: "rules", modified_by: [] })
 
 User.create({ name: "Patricio Beltrán", email: "pbelsal@gmail.com", password: "123456789", password_confirmation: "123456789" })
 User.create({ name: "Roel Castaño", email: "roelcastanomoreno@gmail.com", password: "123456789", password_confirmation: "123456789" })

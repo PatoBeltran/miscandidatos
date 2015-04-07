@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <nav class="navigation-bar container">
+  <nav class="navigation-bar">
    <ul class="brand-section">
      <li class="brand-name">
       <a href="/" class="menu-trigger" id="trigger">Logo</a>
@@ -32,13 +32,13 @@
    </ul>
    <ul class="">
      <li class="divider"></li>
-     <li><a href="#">Perfiles</a></li>
+     <li><%= link_to "Perfiles", profiles_path %></li>
      <li class="divider"></li>
-     <li><a href="/docs">Marco Legal</a></li>
+     <li><%= link_to "Marco Legal", legal_path %></li>
      <li class="divider"></li>
-     <li><a href="/docs">Formas de financiamiento</a></li>
+     <li><%= link_to "Formas de financiamiento", finance_path %></li>
      <li class="divider"></li>
-     <li><a href="/docs">Reglas de candidatura</a></li>
+     <li><%= link_to "Reglas de candidatura", rules_path %></li>
    </ul>
   </nav>
   <% flash.each do |key, value| %>

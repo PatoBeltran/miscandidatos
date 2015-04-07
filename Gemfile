@@ -13,7 +13,7 @@ gem 'compass-rails', "~> 1.1.6" # not relevant for this case,
 gem 'sass-rails', '4.0.2'
 gem 'sprockets', '~>2.11.0'
 gem 'furatto'
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -35,6 +35,7 @@ gem 'figaro'
 gem 'unicorn'
 gem 'annotate'
 gem 'devise'
+gem 'quill-rails', '~> 0.1.0'
 
 group :test do
   gem 'cucumber-rails', require: false

@@ -1,0 +1,47 @@
+<div class="wrapper container">
+  <%= form_tag path, method: :post do %>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <%= label_tag "Title" %>
+        <%= text_field_tag  "page[title]", @page.title %>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div>
+          <div id="js-toolbar" class="ql-toolbar-container toolbar quill-toolbar">
+          <div class="ql-format-group">
+            <span class="ql-bold ql-format-button"></span>
+            <span class="ql-italic ql-format-button"></span>
+            <span class="ql-strike ql-format-button"></span>
+            <span class="ql-underline ql-format-button"></span>
+            <span class="ql-format-separator"></span>
+          </div>
+          <!-- Add font size dropdown -->
+          <select class="ql-size">
+            <option value="small">Small</option>
+            <option value="normal" selected>Normal</option>
+            <option value="large">Large</option>
+            <option value="huge">Huge</option>
+          </select>
+        </div>
+        <div id="js-editor" class="quill-editor ql-editor">
+          <%= @page.content.html_safe %>
+        </div>
+          <%= hidden_field_tag "page[content]", @page.content, id: "js-hidden-field" %>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8  submit-btn">
+        <%= submit_tag "Send", class: "button primary" %>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  <% end %>
+</div>

@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require furatto.min
+//= require quill
 //= require_tree .
+
+if (document.getElementById('js-editor')) {
+  var configs = {
+    theme: 'snow',
+  };
+
+  var editor = new Quill('#js-editor', configs);
+
+  editor.addModule('toolbar', {
+    container: '#js-toolbar'
+  });
+
+  editor.on('text-change', function(delta, source) {
+    $('#js-hidden-field').val(this.getHTML());
+  });
+}
