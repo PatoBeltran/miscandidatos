@@ -22,9 +22,11 @@ es:
         invalid_token: 'Ficha de autenticación invalida.'
         timeout: 'Su sesión ha expirado, por favor ingrese nuevamente para continuar.'
         inactive: 'Su cuenta aún no ha sido activada.'
-      sessions:
+    sessions:
+      user:
         signed_in: 'Ingreso exitoso.'
         signed_out: 'Usted ha salido del sistema.'
+        already_signed_out: "Usted ha salido del sistema."
     passwords:
       send_instructions: 'Recibirá un correo electrónico con instrucciones sobre como reiniciar su contraseña en unos minutos.'
       updated: 'Su contraseña fue cambiada exitosamente y ha sido ingresado al sistema.'

@@ -1,14 +1,31 @@
 <div class="wrapper container">
-  <h1>
-    <%= @page.title %>
+  <div class="row">
     <% if user_signed_in? %>
-      <%= link_to finance_edit_path do %>
-        <%= fa_icon "pencil-square-o" %>
-      <% end %>
+      <div class="edit-button pull-right">
+        <%= link_to finance_edit_path do %>
+          <%= fa_icon "pencil-square-o 1x" %><span>Editar Página</span>
+        <% end %>
+      </div>
     <% end %>
-  </h1>
-  <div class="static-page-content">
+  <div class="row">
+  <div class="title col-12 row">
+    <h1 class="col-12"><%= @page.title %></h1>
+  </div>
+  <div class="static-page-content col-12 row">
     <%= @page.content.html_safe %>
   </div>
+  <% if user_signed_in? && @page.modified_by %>
+    <hr />
+    <div class="col-12">
+      <h4>Han editado:</h4>
+      <div class="page-modifiers row">
+        <% @page.modified_by.each do |a| %>
+          <div class="col-12">
+            <span><strong><%= User.find(a[:user_id]).name %></strong></span>
+            <span>hace <%= time_ago_in_words(a[:date]) %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
-

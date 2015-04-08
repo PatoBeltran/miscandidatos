@@ -30,7 +30,7 @@
       <a href="#">Menu</a>
      </li>
    </ul>
-   <ul class="">
+   <ul>
      <li class="divider"></li>
      <li><%= link_to "Perfiles", profiles_path %></li>
      <li class="divider"></li>
@@ -39,6 +39,20 @@
      <li><%= link_to "Formas de financiamiento", finance_path %></li>
      <li class="divider"></li>
      <li><%= link_to "Reglas de candidatura", rules_path %></li>
+     <% if user_signed_in? %>
+       <li class="divider"></li>
+       <li class="with-dropdown">
+         <a href="#"><span>Dashboard </span><%= fa_icon "arrow-down" %></a>
+         <ul class="dropdown">
+           <li><%= link_to "Candidatos", candidates_path %></li>
+           <li><a href="#">Partidos Políticos</a></li>
+           <li><a href="#">Areas Geográficas</a></li>
+           <li><a href="#">Areas de Candidatura</a></li>
+         </ul>
+       </li>
+       <li class="divider"></li>
+       <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+     <% end %>
    </ul>
   </nav>
   <% flash.each do |key, value| %>
@@ -51,8 +65,9 @@
   <footer>
     <hr />
     © MisCandidatos, 2015. <br />
-    <br />
-    MisCandidatos.mx no esta afiliado a ningún partido político y su único objetivo es promover la participación democrática y la información objetiva sobre los candidatos a puestos políticos en México.
+    <div class="disclaimer">
+      MisCandidatos.mx no esta afiliado a ningún partido político y su único objetivo es promover la participación democrática y la información objetiva sobre los candidatos a puestos políticos en México.
+    </div>
   </footer>
   <%= javascript_include_tag "application" %>
 </body>

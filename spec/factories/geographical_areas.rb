@@ -7,6 +7,7 @@
 #  city       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  color      :string(255)
 #
 
 FactoryGirl.define do

@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   post '/legal/edit' => 'pages#update_legal'
   post '/rules/edit' => 'pages#update_rules'
   post '/finance/edit' => 'pages#update_finance'
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
 end

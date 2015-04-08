@@ -36,6 +36,9 @@ gem 'unicorn'
 gem 'annotate'
 gem 'devise'
 gem 'quill-rails', '~> 0.1.0'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'fog'
 
 group :test do
   gem 'cucumber-rails', require: false

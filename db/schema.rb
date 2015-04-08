@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327012721) do
+ActiveRecord::Schema.define(version: 20150408041933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "candidate_areas", force: :cascade do |t|
+  create_table "candidate_areas", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "candidates", force: :cascade do |t|
+  create_table "candidates", force: true do |t|
     t.string   "name"
     t.text     "bio"
     t.integer  "candidate_area_id"
@@ -32,16 +32,18 @@ ActiveRecord::Schema.define(version: 20150327012721) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.text     "modified_by",          default: "--- []\n"
+    t.string   "image"
   end
 
-  create_table "geographical_areas", force: :cascade do |t|
+  create_table "geographical_areas", force: true do |t|
     t.string   "state"
     t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "color"
   end
 
-  create_table "milestones", force: :cascade do |t|
+  create_table "milestones", force: true do |t|
     t.string   "position"
     t.text     "proposals"
     t.text     "accomplished"
@@ -51,14 +53,15 @@ ActiveRecord::Schema.define(version: 20150327012721) do
     t.text     "modified_by",  default: "--- []\n"
   end
 
-  create_table "political_parties", force: :cascade do |t|
+  create_table "political_parties", force: true do |t|
     t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "abbreviation"
+    t.string   "color"
   end
 
-  create_table "static_pages", force: :cascade do |t|
+  create_table "static_pages", force: true do |t|
     t.string   "name"
     t.string   "title"
     t.text     "content"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150327012721) do
     t.datetime "updated_at",                       null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

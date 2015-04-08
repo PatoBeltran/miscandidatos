@@ -10,25 +10,37 @@
   <% end %>
 </div>
 <div class="candidate-filters">
- <% @filters.each do |filter| %>
-    <div class="filters"><%= filter.abbreviation %></div>
+  <div class="filter"><%= link_to "Todos", "#", class: "js-filter-link", data: { filter: "*" } %></div>
+  <% @filters.each do |filter| %>
+    <div class="filter"><%= link_to filter.abbreviation, "#", class: "js-filter-link", data: { filter: ".#{filter.abbreviation}" } %></div>
   <% end %>
 </div>
-<div class="wrapper container row">
+<div class="wrapper container row" id="js-candidate-container">
   <% @candidates.each do |candidate| %>
-    <div class="row-3">
-      <div class="image-wrapper">
-        <%= image_tag "" %>
-      </div>
-      <div class="name-wrapper">
-        <div class="inner-name">
-          <%= candidate.name %>
+    <div class="candidate-show col-3 <%= candidate.political_party.abbreviation %>">
+      <div class="candidate-inner-wrapper">
+        <div class="image-wrapper">
+          <% if candidate.image.present? %>
+            <%= image_tag candidate.image.to_s %>
+          <% else %>
+            <%= image_tag "placeholder.jpg" %>
+          <% end %>
         </div>
-        <div class="political-party-abbreviation">
-          <%= candidate.political_party.abbreviation %>
+        <div class="name-wrapper row">
+          <div class="inner-name col-8">
+            <%= candidate.name %>
+          </div>
+          <div class="col-4 political-party row">
+            <div class="political-party-abbreviation col-12">
+              <%= candidate.political_party.abbreviation %>
+            </div>
+          </div>
+          <% if candidate.political_party.present? %>
+            <div class="category-color col-12" style="background-color: <%= candidate.political_party.color %>"></div>
+          <% else %>
+            <div class="category-color col-12" style="background-color: <%= candidate.geographical_area.color %>"></div>
+          <% end %>
         </div>
-      </div>
-      <div class="category-color" style="background-color: <%= "#ff0000" %>">
       </div>
     </div>
   <% end %>

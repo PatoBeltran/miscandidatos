@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(page_params)
       @page.modified_by << { user_id: current_user.id, date: Time.now }
       @page.save!
-      redirect_to legal_path
+      redirect_to legal_path, notice: "La página se actualizó correctamente."
     else
       render :edit_legal
     end
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(page_params)
       @page.modified_by << { user_id: current_user.id, date: Time.now }
       @page.save!
-      redirect_to finance_path
+      redirect_to finance_path, notice: "La página se actualizó correctamente."
     else
       render :edit_finance
     end
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(page_params)
       @page.modified_by << { user_id: current_user.id, date: Time.now }
       @page.save!
-      redirect_to rules_path
+      redirect_to rules_path, notice: "La página se actualizó correctamente."
     else
       render :edit_rules
     end

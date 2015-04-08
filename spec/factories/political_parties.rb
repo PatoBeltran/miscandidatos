@@ -7,6 +7,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  abbreviation :string
+#  color        :string(255)
 #
 
 FactoryGirl.define do

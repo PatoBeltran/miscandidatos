@@ -13,8 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require furatto.min
+//= require isotope.min
 //= require quill
+//= require spectrum
 //= require_tree .
+
+function clearSelected(id){
+  $(id).removeAttr("selected");
+}
 
 if (document.getElementById('js-editor')) {
   var configs = {
@@ -31,3 +37,48 @@ if (document.getElementById('js-editor')) {
     $('#js-hidden-field').val(this.getHTML());
   });
 }
+
+if (document.getElementById('js-candidate-container')) {
+  $('#js-candidate-container').isotope({
+    itemSelector: '.candidate-show'
+  });
+
+  $('.js-filter-link').on("click", function() {
+    console.log(this.dataset.filter);
+    filter(this.dataset.filter);
+  });
+}
+
+function filter(klass) {
+  $('#js-candidate-container').isotope({ filter: klass })
+}
+
+$('.line').each(function(i, item) {
+  var $item = $(item);
+  $item.addClass('col-12');
+});
+
+if($("#candidate_candidate_area_id option:selected").text() == "Gubernatura") {
+  $("#js-party").show();
+  $("#js-geography").hide();
+} else if($("#candidate_candidate_area_id option:selected").text() != "") {
+  $("#js-party").hide();
+  $("#js-geography").show();
+}
+
+$('#candidate_candidate_area_id').on("change", function() {
+  if($("#candidate_candidate_area_id option:selected").text() == "Gubernatura") {
+    $("#js-party").show();
+    clearSelected("#js-geography select option:selected");
+    $("#js-geography").hide();
+  } else if($("#candidate_candidate_area_id option:selected").text() != "") {
+    clearSelected("#js-party select option:selected");
+    $("#js-party").hide();
+    $("#js-geography").show();
+  } else {
+    clearSelected("#js-party select option:selected");
+    $("#js-party").hide();
+    clearSelected("#js-geography select option:selected");
+    $("#js-geography").hide();
+  }
+});

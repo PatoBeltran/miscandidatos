@@ -1,9 +1,21 @@
 <div class="wrapper container">
   <%= form_tag path, method: :post do %>
     <div class="row">
+      <% if @page.errors.any? %>
+        <div class="col-12">
+          <div id="error_explanation">
+            <h2><%= pluralize(@page.errors.count, "error") %> prohibieron esta página de grabarse: </h2>
+            <ul>
+            <% @page.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
       <div class="col-2"></div>
       <div class="col-8">
-        <%= label_tag "Title" %>
+        <%= label_tag "Título" %>
         <%= text_field_tag  "page[title]", @page.title %>
       </div>
       <div class="col-2"></div>
@@ -39,7 +51,7 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col-8  submit-btn">
-        <%= submit_tag "Send", class: "button primary" %>
+        <%= submit_tag "Envíar", class: "button primary" %>
       </div>
       <div class="col-2"></div>
     </div>

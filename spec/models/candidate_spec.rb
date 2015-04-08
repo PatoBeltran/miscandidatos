@@ -12,6 +12,7 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  modified_by          :text             default("--- []\n")
+#  image                :string(255)
 #
 
 require 'rails_helper'

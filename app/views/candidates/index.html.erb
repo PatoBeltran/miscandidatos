@@ -1,0 +1,41 @@
+<div class="wrapper container">
+  <div class="pull-right">
+    <%= link_to new_candidate_path do %>
+      <%= fa_icon "plus-square-o" %> <span>Agregar Candidato</span>
+    <% end %>
+  </div>
+  <div>
+    <h3>Candidatos</h3>
+    <div class="row">
+      <% @candidates.each_with_index do |candidate, i| %>
+        <div class="candidate col-5 row">
+          <div class=" col-8 row">
+            <h4 class="col-12"><strong><%= link_to candidate.name, candidate %></strong></h4>
+            <div class="col-12">
+              <span><%= CandidateArea.find(candidate.candidate_area_id).name %></span>
+              <% if candidate.political_party_id %>
+                <span> - <%= PoliticalParty.find(candidate.political_party_id).abbreviation %></span>
+              <% end %>
+              <% if candidate.geographical_area_id %>
+                <span> - <%= GeographicalArea.find(candidate.geographical_area_id).city %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-4 row">
+            <span class="col-12">
+              <%= link_to edit_candidate_path(candidate) do %>
+                <%= fa_icon "pencil-square-o 1x" %> <span>Editar Candidato</span>
+              <% end %>
+            </span>
+            <span class="col-12">
+              <%= link_to candidate, method: :delete do %>
+                <%= fa_icon "trash-o 1x" %> <span>Eliminar Candidato</span>
+              <% end %>
+            </span>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      <% end %>
+  </div>
+</div>
+

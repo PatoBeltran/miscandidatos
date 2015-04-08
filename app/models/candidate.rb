@@ -12,6 +12,7 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  modified_by          :text             default("--- []\n")
+#  image                :string(255)
 #
 
 class Candidate < ActiveRecord::Base
@@ -23,4 +24,6 @@ class Candidate < ActiveRecord::Base
   belongs_to :candidate_area
   has_many :milestones
   validates :name, :bio, :candidate_area, :user_id, presence: true
+
+  mount_uploader :image, ImageUploader
 end
