@@ -98,6 +98,7 @@
         padding-top: 20px;
         padding-right: 5px;
         opacity: .5;
+        font-size: 0.9em;
       }
 
       .category-color {
@@ -148,6 +149,24 @@ footer {
   height: 300px;
 }
 
+.js-toolbar {
+  border: 1px solid #e5e5e5;
+  margin: 5px auto;
+  box-shadow: 2px 1px 5px rgba(0,0,0,0.2);
+}
+
+fieldset {
+  border: none;
+  margin: 10px;
+}
+
+.js-editor {
+  margin: 5px auto;
+  box-shadow: 2px 1px 5px rgba(0,0,0,0.2);
+  border: 1px solid #e5e5e5;
+  height: 300px;
+}
+
 .edit-button {
   padding: 10px;
 }
@@ -171,6 +190,6 @@ footer {
 }
 
 @import "quill.snow";
+@import "spectrum";
 @import "font-awesome";
 @import "furatto_overrides";
-@import "spectrum";

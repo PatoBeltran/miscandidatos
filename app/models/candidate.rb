@@ -3,7 +3,7 @@
 # Table name: candidates
 #
 #  id                   :integer          not null, primary key
-#  name                 :string
+#  name                 :string(255)
 #  bio                  :text
 #  candidate_area_id    :integer
 #  political_party_id   :integer
@@ -26,4 +26,5 @@ class Candidate < ActiveRecord::Base
   validates :name, :bio, :candidate_area, :user_id, presence: true
 
   mount_uploader :image, ImageUploader
+  accepts_nested_attributes_for :milestones, allow_destroy: true
 end

@@ -59,6 +59,18 @@
       <%= f.label :geographical_area_id, "Área Geográfica" %>
       <%= f.select :geographical_area_id, GeographicalArea.all.collect {|p| [ p.city, p.id ] }, include_blank: true %>
     </div>
+    <div class="col-12 row">
+      <h3 class="col-12">Trayectoría</h3>
+      <div class="col-12">
+        <%= f.fields_for :milestones do |builder| %>
+          <%= render 'milestone_fields', f: builder %>
+        <% end %>
+        <div class="pull-right">
+          <%= fa_icon "plus 1x" %>
+          <%= link_to_add_fields "Agregar puesto", f, :milestones %>
+        </div>
+      </div>
+    </div>
     <div class="col-2"></div>
     <div class="col-8  submit-btn">
       <%= f.submit "Envíar", class: "button primary" %>

@@ -3,7 +3,7 @@
 # Table name: candidates
 #
 #  id                   :integer          not null, primary key
-#  name                 :string
+#  name                 :string(255)
 #  bio                  :text
 #  candidate_area_id    :integer
 #  political_party_id   :integer

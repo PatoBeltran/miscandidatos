@@ -48,9 +48,8 @@ ActiveRecord::Schema.define(version: 20150408041933) do
     t.text     "proposals"
     t.text     "accomplished"
     t.integer  "candidate_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.text     "modified_by",  default: "--- []\n"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "political_parties", force: true do |t|

@@ -18,6 +18,8 @@
 //= require spectrum
 //= require_tree .
 
+var eeee;
+
 function clearSelected(id){
   $(id).removeAttr("selected");
 }
@@ -80,5 +82,72 @@ $('#candidate_candidate_area_id').on("change", function() {
     $("#js-party").hide();
     clearSelected("#js-geography select option:selected");
     $("#js-geography").hide();
+  }
+});
+
+
+$('form').on('click', '.remove_fields', function(event){
+  $(this.parentElement).find('input[type=hidden]').val('1');
+  $(this).closest('fieldset').hide();
+  event.preventDefault();
+});
+
+$('form').on('click', '.add_fields', function(event){
+  var configs = {
+    theme: 'snow',
+  };
+  var time = new Date().getTime();
+  var regexp = new RegExp($(this).data('id'), 'g');
+  $(this.parentNode).before($(this).data('fields').replace(regexp, time));
+
+  var content = this.parentNode.parentNode.getElementsByClassName("milestone");
+  content = content[content.length-1];
+  content = content.firstElementChild;
+
+  var accomp = content.getElementsByClassName("accomplished")[0].getElementsByClassName("inner")[0];
+
+  var editorAccomp = new Quill(accomp.getElementsByClassName("js-editor")[0], configs);
+  editorAccomp.addModule('toolbar', {
+    container: accomp.getElementsByClassName("js-toolbar")[0]
+  });
+
+  editorAccomp.on('text-change', function(delta, source) {
+    $(accomp).find("input:hidden").val(this.getHTML());
+  });
+
+  var proposals = content.getElementsByClassName("proposals")[0].getElementsByClassName("inner")[0];
+
+  var editorProp = new Quill(proposals.getElementsByClassName("js-editor")[0], configs);
+
+  editorProp.addModule('toolbar', {
+    container: proposals.getElementsByClassName("js-toolbar")[0]
+  });
+
+  editorProp.on('text-change', function(delta, source) {
+    $(proposals).find("input:hidden").val(this.getHTML());
+  });
+
+  event.preventDefault();
+});
+
+$(document).ready(function() {
+  for (var i = 0; i < document.getElementsByTagName("fieldset").length; i++) {
+    var field = document.getElementsByTagName("fieldset")[i];
+    var accomp = field.getElementsByClassName("accomplished")[0].getElementsByClassName("inner")[0];
+    var editorAccomp = new Quill(accomp.getElementsByClassName("js-editor")[0], configs);
+    editorAccomp.addModule('toolbar', {
+      container: accomp.getElementsByClassName("js-toolbar")[0]
+    });
+    editorAccomp.on('text-change', function(delta, source) {
+      $(accomp).find("input:hidden").val(this.getHTML());
+    });
+    var proposals = field.getElementsByClassName("proposals")[0].getElementsByClassName("inner")[0];
+    var editorProp = new Quill(proposals.getElementsByClassName("js-editor")[0], configs);
+    editorProp.addModule('toolbar', {
+      container: proposals.getElementsByClassName("js-toolbar")[0]
+    });
+    editorProp.on('text-change', function(delta, source) {
+      $(proposals).find("input:hidden").val(this.getHTML());
+    });
   }
 });

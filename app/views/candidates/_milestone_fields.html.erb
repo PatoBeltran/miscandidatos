@@ -1,0 +1,67 @@
+<fieldset class="col-12 row milestone">
+  <div class="wrapper container row">
+    <div class="col-12">
+      <%= f.label :position, "Posición" %>
+      <%= f.text_field :position %>
+    </div>
+    <div class="col-6 proposals">
+      <%= f.label :proposals, "¿Qué propuso? (Solo sí aplica)" %>
+       <div class="col-12 inner">
+        <div class="js-toolbar clearfix" class="ql-toolbar-container toolbar quill-toolbar">
+          <div class="ql-format-group">
+            <span class="ql-bold ql-format-button"></span>
+            <span class="ql-italic ql-format-button"></span>
+            <span class="ql-strike ql-format-button"></span>
+            <span class="ql-underline ql-format-button"></span>
+            <span class="ql-format-separator"></span>
+          </div>
+          <!-- Add font size dropdown -->
+          <select class="ql-size">
+            <option value="small">Small</option>
+            <option value="normal" selected>Normal</option>
+            <option value="large">Large</option>
+            <option value="huge">Huge</option>
+          </select>
+        </div>
+        <div class="js-editor" class="quill-editor ql-editor">
+          <% if f.object.proposals %>
+            <%= f.object.proposals.html_safe %>
+          <% end %>
+        </div>
+        <%= f.hidden_field :proposals %>
+      </div>
+    </div>
+    <div class="col-6 accomplished">
+      <%= f.label :accomplished, "¿Qué cumplio? (Solo sí aplica)" %>
+      <div class="col-12 inner">
+        <div class="js-toolbar clearfix" class="ql-toolbar-container toolbar quill-toolbar">
+          <div class="ql-format-group">
+            <span class="ql-bold ql-format-button"></span>
+            <span class="ql-italic ql-format-button"></span>
+            <span class="ql-strike ql-format-button"></span>
+            <span class="ql-underline ql-format-button"></span>
+            <span class="ql-format-separator"></span>
+          </div>
+          <!-- Add font size dropdown -->
+          <select class="ql-size">
+            <option value="small">Small</option>
+            <option value="normal" selected>Normal</option>
+            <option value="large">Large</option>
+            <option value="huge">Huge</option>
+          </select>
+        </div>
+        <div class="js-editor quill-editor ql-editor">
+          <% if f.object.accomplished %>
+            <%= f.object.accomplished.html_safe %>
+          <% end %>
+        </div>
+        <%= f.hidden_field :accomplished %>
+      </div>
+    </div>
+    <div class="pull-right">
+      <%= f.hidden_field :_destroy %>
+      <%= fa_icon "trash-o 1x" %>
+      <%= link_to "Eliminar puesto", '#', class: "remove_fields" %>
+    </div>
+  </div>
+</fieldset>
