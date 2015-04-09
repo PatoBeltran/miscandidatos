@@ -13,6 +13,7 @@
 #  updated_at           :datetime         not null
 #  modified_by          :text             default("--- []\n")
 #  image                :string(255)
+#  proposals            :text
 #
 
 require 'rails_helper'

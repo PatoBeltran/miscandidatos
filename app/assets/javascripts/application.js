@@ -40,6 +40,22 @@ if (document.getElementById('js-editor')) {
   });
 }
 
+if (document.getElementById('js-prop-editor')) {
+  var configs = {
+    theme: 'snow',
+  };
+
+  var editor = new Quill('#js-prop-editor', configs);
+
+  editor.addModule('toolbar', {
+    container: '#js-prop-toolbar'
+  });
+
+  editor.on('text-change', function(delta, source) {
+    $('#js-proposals-hidden-field').val(this.getHTML());
+  });
+}
+
 if (document.getElementById('js-candidate-container')) {
   $('#js-candidate-container').isotope({
     itemSelector: '.candidate-show'

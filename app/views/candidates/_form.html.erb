@@ -16,7 +16,8 @@
       <%= f.label :name, "Nombre" %>
       <%= f.text_field :name %>
     </div>
-    <div class="col-12">
+    <div class="col-6">
+      <%= f.label :bio, "Descripción/Biografía del candidato" %>
       <div id="js-toolbar" class="ql-toolbar-container toolbar quill-toolbar">
         <div class="ql-format-group">
           <span class="ql-bold ql-format-button"></span>
@@ -42,20 +43,47 @@
         <%= f.hidden_field :bio, id: "js-hidden-field" %>
       </div>
     </div>
+    <div class="col-6">
+      <%= f.label :proposals, "Propuestas" %>
+      <div id="js-prop-toolbar" class="ql-toolbar-container toolbar quill-toolbar">
+        <div class="ql-format-group">
+          <span class="ql-bold ql-format-button"></span>
+          <span class="ql-italic ql-format-button"></span>
+          <span class="ql-strike ql-format-button"></span>
+          <span class="ql-underline ql-format-button"></span>
+          <span class="ql-format-separator"></span>
+        </div>
+        <!-- Add font size dropdown -->
+        <select class="ql-size">
+          <option value="small">Small</option>
+          <option value="normal" selected>Normal</option>
+          <option value="large">Large</option>
+          <option value="huge">Huge</option>
+        </select>
+      </div>
+      <div id="js-prop-editor" class="quill-editor ql-editor">
+        <% if @candidate.proposals %>
+          <%= @candidate.proposals.html_safe %>
+        <% end %>
+      </div>
+      <div>
+        <%= f.hidden_field :proposals, id: "js-proposals-hidden-field" %>
+      </div>
+    </div>
     <div class="col-12">
       <%= f.label :image, "Imágen del candidato" %>
       <%= f.file_field :image %>
       <span>* Asegurate de que la imágen sea cuadrada para que se vea bien en la página e intenta que sea lo más ligera posible!</span>
     </div>
-    <div class="col-12">
+    <div class="col-6">
       <%= f.label :candidate_area_id, "Area de la candidatura" %>
       <%= f.select :candidate_area_id, CandidateArea.all.collect {|a| [ a.name, a.id ] }, include_blank: true %>
     </div>
-    <div id="js-party" style="display: none;" class="col-12">
+    <div id="js-party" style="display: none;" class="col-6">
       <%= f.label :political_party_id, "Partido político" %>
       <%= f.select :political_party_id, PoliticalParty.all.collect {|p| [ p.name, p.id ] }, include_blank: true %>
     </div>
-    <div id="js-geography" style="display: none;" class="col-12">
+    <div id="js-geography" style="display: none;" class="col-6">
       <%= f.label :geographical_area_id, "Área Geográfica" %>
       <%= f.select :geographical_area_id, GeographicalArea.all.collect {|p| [ p.city, p.id ] }, include_blank: true %>
     </div>
