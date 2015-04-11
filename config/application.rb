@@ -38,6 +38,7 @@ module MisCandidatos
 
     config.i18n.default_locale = :es
     config.autoload_paths += %W(#{config.root}/lib)
+    config.assets.initialize_on_precompile = false
   end
 end
 
