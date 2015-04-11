@@ -32,6 +32,11 @@
                 <%= fa_icon "trash-o 1x" %> <span>Eliminar Candidato</span>
               <% end %>
             </span>
+            <span class="col-12">
+              <% unless candidate.active? %>
+                Escondido
+              <% end %>
+            </span>
           </div>
         </div>
         <div class="col-1"></div>

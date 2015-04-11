@@ -14,6 +14,7 @@
 #  modified_by          :text             default("--- []\n")
 #  image                :string(255)
 #  proposals            :text
+#  active               :boolean          default(TRUE)
 #
 
 class Candidate < ActiveRecord::Base
@@ -28,4 +29,16 @@ class Candidate < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :milestones, allow_destroy: true
+
+  def isGovernor?
+    candidate_area.name == "Gubernatura"
+  end
+
+  def isMayor?
+    candidate_area.name == "Alcaldía"
+  end
+
+  def isDeputy?
+    candidate_area.name == "Diputación"
+  end
 end

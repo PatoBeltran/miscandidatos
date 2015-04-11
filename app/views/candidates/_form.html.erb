@@ -16,6 +16,10 @@
       <%= f.label :name, "Nombre" %>
       <%= f.text_field :name %>
     </div>
+    <div class="col-12">
+      <%= f.check_box :active %>
+      <%= f.label :active, "Público (No esta escondido en la interfáz)" %>
+    </div>
     <div class="col-6">
       <%= f.label :bio, "Descripción/Biografía del candidato" %>
       <div id="js-toolbar" class="ql-toolbar-container toolbar quill-toolbar">

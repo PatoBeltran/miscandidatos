@@ -14,6 +14,7 @@
 #  modified_by          :text             default("--- []\n")
 #  image                :string(255)
 #  proposals            :text
+#  active               :boolean          default(TRUE)
 #
 
 FactoryGirl.define do
