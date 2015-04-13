@@ -44,6 +44,12 @@ class CandidatesController < ApplicationController
     redirect_to candidates_path, notice: "El candidato se ha eliminado correctamente."
   end
 
+  def toggle_hide
+    @candidate =  Candidate.find(params[:candidate_id])
+    @candidate.update_attributes(active: !@candidate.active?)
+    redirect_to candidates_path, notice: "El candidato se ha actualizado correctamente."
+  end
+
   private
 
   def candidate_params

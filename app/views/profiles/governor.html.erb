@@ -35,11 +35,7 @@
               <%= candidate.political_party.abbreviation %>
             </div>
           </div>
-          <% if candidate.political_party.present? %>
-            <div class="category-color col-12" style="background-color: <%= candidate.political_party.color %>"></div>
-          <% else %>
-            <div class="category-color col-12" style="background-color: <%= candidate.geographical_area.color %>"></div>
-          <% end %>
+          <div class="category-color col-12" style="background-color: <%= candidate.political_party.color %>"></div>
         </div>
       </a>
     </li>

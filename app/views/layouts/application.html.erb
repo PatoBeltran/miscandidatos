@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,100,800,500,400,300' rel='stylesheet' type='text/css'>
 
-  <title>MisCandidatos</title>
+  <title>YoElijo.mx</title>
 
   <!-- Furatto core CSS -->
   <%= stylesheet_link_tag "application", :cache => true %>
@@ -45,9 +45,13 @@
          <a href="#"><span>Dashboard </span><%= fa_icon "arrow-down" %></a>
          <ul class="dropdown">
            <li><%= link_to "Candidatos", candidates_path %></li>
-           <li><a href="#">Partidos Políticos</a></li>
-           <li><a href="#">Areas Geográficas</a></li>
-           <li><a href="#">Areas de Candidatura</a></li>
+           <li><%= link_to "Partidos Políticos", "#" %></li>
+           <li><%= link_to "Areas Geográficas", "#" %></li>
+           <li><%= link_to "Areas de Candidatura", "#" %></li>
+           <% if current_user.admin? %>
+             <li class="divider"></li>
+             <li><%= link_to "Usuarios", "#" %></li>
+           <% end %>
          </ul>
        </li>
        <li class="divider"></li>
@@ -64,9 +68,9 @@
   <%= yield %>
   <footer>
     <hr />
-    © MisCandidatos, 2015. <br />
+    © YoElijo, 2015. <br />
     <div class="disclaimer">
-      MisCandidatos.mx no esta afiliado a ningún partido político y su único objetivo es promover la participación democrática y la información objetiva sobre los candidatos a puestos políticos en México.
+      YoElijo.mx no esta afiliado a ningún partido político y su único objetivo es promover la participación democrática y la información objetiva sobre los candidatos a puestos políticos en México.
     </div>
   </footer>
   <%= javascript_include_tag "application" %>

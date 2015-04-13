@@ -1,0 +1,44 @@
+<div class="container wrapper row">
+  <div class="col-6"><h4><%= @candidate.candidate_area.name %></div>
+  <div class="col-6">
+    <div class="pull-right row">
+      <div class="col-12">
+        <%= link_to edit_candidate_path(@candidate) do %>
+          <%= fa_icon "pencil-square-o 1x" %> <span>Editar Candidato</span>
+        <% end %>
+      </div>
+      <div class="col-12">
+        <%= link_to @candidate, method: :delete do %>
+          <%= fa_icon "trash-o 1x" %> <span>Eliminar Candidato</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 row">
+    <div class="col-4">
+      <%= image_tag @candidate.image.present? ? @candidate.image : "placeholder.jpg", class: "candidate-image" %>
+    </div>
+    <div class="col-8 row">
+      <span class="col-12"><%= @candidate.name %></span>
+      <div class="candidate-line col-12" style="background-color: <%= @candidate.isGovernor? ? @candidate.political_party.color : @candidate.geographical_area.color %>"></div>
+      <span class="col-12"><%= @candidate.political_party.name if @candidate.political_party.present? %></span>
+      <span class="col-12"><%= "#{@candidate.geographical_area.city}, #{@candidate.geographical_area.state}" if @candidate.geographical_area.present? %></span>
+      <div class="col-12">
+        <h3>Bio</h3>
+        <%= @candidate.bio.html_safe %>
+      </div>
+      <div class="col-12">
+        <h3>Propuestas</h3>
+        <%= @candidate.proposals.html_safe %>
+      </div>
+    </div>
+    <div class="col-12 row">
+      <h3>Trayectoria</h3>
+      <% @candidate.milestones.each do |milestone| %>
+        <div class="col-12"><%= milestone.position %></div>
+        <div class="col-6"><%= milestone.proposals.html_safe %></div>
+        <div class="col-6"><%= milestone.accomplished.html_safe %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

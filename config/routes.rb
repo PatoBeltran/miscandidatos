@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#legal"
+  root to: "profiles#index"
   resources :profiles, only: [:index]
-  resources :candidates
+  resources :candidates do
+    post 'toggle_hide' => 'candidates#toggle_hide'
+  end
 
   get '/profiles/governor' => 'profiles#governor'
   get '/profiles/deputy' => 'profiles#deputy'

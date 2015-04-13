@@ -28,8 +28,14 @@
               <% end %>
             </span>
             <span class="col-12">
-              <%= link_to candidate, method: :delete do %>
-                <%= fa_icon "trash-o 1x" %> <span>Eliminar Candidato</span>
+              <% if candidate.active? %>
+                <%= link_to candidate_toggle_hide_path(candidate), method: :post do %>
+                  <%= fa_icon "user-secret 1x" %> <span>Esconder Candidato</span>
+                <% end %>
+              <% else %>
+                <%= link_to candidate_toggle_hide_path(candidate), method: :post do %>
+                  <%= fa_icon "street-view 1x" %> <span>Publicar Candidato</span>
+                <% end %>
               <% end %>
             </span>
             <span class="col-12">

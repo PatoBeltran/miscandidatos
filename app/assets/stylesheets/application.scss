@@ -197,6 +197,83 @@ fieldset {
   margin-top: 10px;
 }
 
+.candidate-image {
+  max-width: 250px;
+  max-height: 250px;
+  height: auto;
+  width: 100%;
+}
+
+.candidate-line {
+  height: 10px;
+  width: 100%;
+  margin: 10px;
+}
+
+.color-line {
+  width: 2%;
+  height: 100%;
+  float: left;
+}
+
+.inner-candidate-open-wrapper {
+  width: 98%;
+  height: 100%;
+  float: left;
+}
+
+.left-wrapper {
+  text-align: center;
+}
+
+.open-image-wrapper {
+  height: 100%;
+  margin-top: 50px;
+  display: inline-block;
+}
+
+.open-info-wrapper {
+  height: 100%;
+}
+
+.open-img {
+  max-height: 250px;
+}
+
+.open-candidate-name {
+  text-align: left;
+  font-size: 1.5em;
+  color: white;
+  margin-left: 5px;
+}
+
+.open-candidate-filter {
+  text-align: left;
+  font-size: 0.9em;
+  color: #C3C3C3;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.open-info-wrapper.col-10.row {
+  margin-top: 0;
+}
+
+.open-info-wrapper h3 {
+  color: #C3C3C3;
+}
+
+.open-info-wrapper h4 {
+  color: #C3C3C3;
+}
+
+.open-info-wrapper strong {
+  color: #dddddd;
+}
+
+.open-info-wrapper p {
+  color: white;
+}
+
 @import "quill.snow";
 @import "spectrum";
 @import "font-awesome";

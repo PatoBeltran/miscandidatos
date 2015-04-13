@@ -1,0 +1,43 @@
+<div class="candidate-areas">
+  <% @areas.each do |area| %>
+    <% if area.name == "Gubernatura" %>
+      <div class="area"><%= link_to area.name, profiles_governor_path %></div>
+    <% elsif  area.name == "Alcaldía" %>
+      <div class="area  area-main"><%= link_to area.name, profiles_mayor_path %></div>
+    <% else %>
+      <div class="area"><%= link_to area.name, profiles_deputy_path %></div>
+    <% end %>
+  <% end %>
+</div>
+<div class="candidate-filters">
+  <div class="filter"><%= link_to "Todos", "#", class: "js-filter-link", data: { filter: "*" } %></div>
+  <% @filters.each do |filter| %>
+    <div class="filter"><%= link_to filter.city, "#", class: "js-filter-link", data: { filter: ".#{filter.city}" } %></div>
+  <% end %>
+</div>
+<ul class="wrapper container row preview-grid" id="preview-grid">
+  <% @candidates.each do |candidate| %>
+    <li class="candidate-show col-3 <%= candidate.geographical_area.city %>">
+      <%= opening_anchor_tag_for_candidate(candidate) %>
+        <div class="image-wrapper">
+          <% if candidate.image.present? %>
+            <%= image_tag candidate.image.to_s %>
+          <% else %>
+            <%= image_tag "placeholder.jpg" %>
+          <% end %>
+        </div>
+        <div class="name-wrapper row">
+          <div class="inner-name col-7">
+            <%= candidate.name %>
+          </div>
+          <div class="col-5 political-party row">
+            <div class="political-party-abbreviation col-12">
+              <%= candidate.geographical_area.city %>
+            </div>
+          </div>
+          <div class="category-color col-12" style="background-color: <%= candidate.geographical_area.color %>"></div>
+        </div>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -20,7 +20,7 @@ module ApplicationHelper
       if candidate.isGovernor?
         anchor = "#{anchor} data-filter ='#{candidate.political_party.name}' data-color='#{candidate.political_party.color}'"
       else
-        anchor = "#{anchor} data-filter='#{candidate.geographical_area.name}' data-color='#{candidate.geographical_area.color}'"
+        anchor = "#{anchor} data-filter='#{candidate.geographical_area.city}' data-color='#{candidate.geographical_area.color}'"
       end
       if candidate.bio.present?
         anchor = "#{anchor} data-bio='#{candidate.bio}'"
