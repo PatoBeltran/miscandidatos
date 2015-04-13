@@ -47,6 +47,6 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:name, :bio, :proposals, :active, :candidate_area_id, :political_party_id, :geographical_area_id, milestones_attributes: [:id, :position, :proposals, :accomplished, :_destroy])
+    params.require(:candidate).permit(:name, :bio, :proposals, :active, :candidate_area_id, :political_party_id, :image, :geographical_area_id, milestones_attributes: [:id, :position, :proposals, :accomplished, :_destroy])
   end
 end
