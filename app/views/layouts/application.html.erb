@@ -45,12 +45,12 @@
          <a href="#"><span>Dashboard </span><%= fa_icon "arrow-down" %></a>
          <ul class="dropdown">
            <li><%= link_to "Candidatos", candidates_path %></li>
-           <li><%= link_to "Partidos Políticos", "#" %></li>
-           <li><%= link_to "Areas Geográficas", "#" %></li>
-           <li><%= link_to "Areas de Candidatura", "#" %></li>
+           <li><%= link_to "Partidos Políticos", political_parties_path %></li>
+           <li><%= link_to "Areas Geográficas", geographical_areas_path %></li>
+           <li><%= link_to "Areas de Candidatura", candidate_areas_path %></li>
            <% if current_user.admin? %>
              <li class="divider"></li>
-             <li><%= link_to "Usuarios", "#" %></li>
+             <li><%= link_to "Usuarios", users_path %></li>
            <% end %>
          </ul>
        </li>
