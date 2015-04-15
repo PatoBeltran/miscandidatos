@@ -1,0 +1,21 @@
+<%= form_for @user do |f| %>
+  <div class="col-12">
+    <%= f.label :name, "Nombre" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="col-12">
+    <%= f.label :email, "Correo Electrónico" %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="col-12">
+    <%= f.label :password, "Contraseña" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="col-12">
+    <%= f.label :password_confirmation, "Confirmar Contraseña" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="col-12">
+    <%= f.submit "Enviar", class: "button primary block" %>
+  </div>
+<% end %>

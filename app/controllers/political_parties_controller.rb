@@ -9,7 +9,7 @@ class PoliticalPartiesController < ApplicationController
     @political_party = PoliticalParty.new(political_party_params)
 
     if @political_party.save
-      redirect_to @political_party, notice: "El partido político se creó correctamente."
+      redirect_to political_parties_path, notice: "El partido político se creó correctamente."
     else
       render :new
     end
@@ -22,7 +22,7 @@ class PoliticalPartiesController < ApplicationController
   def update
     @political_party = PoliticalParty.find(params[:id])
     if @political_party.update_attributes(political_party_params)
-      redirect_to @political_party, notice: "El partido político se actualizó correctamente."
+      redirect_to political_parties_path, notice: "El partido político se actualizó correctamente."
     else
       render :edit
     end

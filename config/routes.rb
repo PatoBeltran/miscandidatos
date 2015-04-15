@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :candidates do
     post 'toggle_hide' => 'candidates#toggle_hide'
   end
-  resources :users
-  resources :political_parties
-  resources :geographical_areas
-  resources :candidate_areas
+  resources :users, except: [:show]
+  resources :political_parties, except: [:show]
+  resources :geographical_areas, except: [:show]
+
 
   get '/profiles/governor' => 'profiles#governor'
   get '/profiles/deputy' => 'profiles#deputy'

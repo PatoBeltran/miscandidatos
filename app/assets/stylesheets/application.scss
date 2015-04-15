@@ -290,6 +290,18 @@ li.candidate-show.col-3 {
   max-width: 250px;
 }
 
+.color-addon {
+  height: 20px;
+  margin: 10px 0;
+}
+
+.el-inner {
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+
 @import "quill.snow";
 @import "spectrum";
 @import "font-awesome";

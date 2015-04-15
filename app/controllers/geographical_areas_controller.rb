@@ -9,7 +9,7 @@ class GeographicalAreasController < ApplicationController
     @geographical_area = GeographicalArea.new(geographical_area_params)
 
     if @geographical_area.save
-      redirect_to @geographical_area, notice: "La zona geográfica se creó correctamente."
+      redirect_to geographical_areas_path, notice: "La zona geográfica se creó correctamente."
     else
       render :new
     end
@@ -23,7 +23,7 @@ class GeographicalAreasController < ApplicationController
     @geographical_area = GeographicalArea.find(params[:id])
 
     if @geographical_area.update_attributes(geographical_area_params)
-      redirect_to @geographical_area, notice: "La zona geográfica se actualizó correctamente."
+      redirect_to geographical_areas_path, notice: "La zona geográfica se actualizó correctamente."
     else
       render :edit
     end

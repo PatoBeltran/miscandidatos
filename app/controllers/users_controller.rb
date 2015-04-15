@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(candidate_params)
 
     if @user.save
-      redirect_to @user, notice: "El usuario se creó correctamente"
+      redirect_to users_path, notice: "El usuario se creó correctamente"
     else
       render :new
     end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      redirect_to @user, notice: "El usuario se actualizó correctamente"
+      redirect_to users_path, notice: "El usuario se actualizó correctamente"
     else
       render :edit
     end

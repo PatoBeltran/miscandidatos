@@ -1,2 +1,35 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container wrapper">
+  <div class="pull-right">
+    <%= link_to new_user_path do %>
+      <%= fa_icon "plus-square-o" %> <span>Agregar</span>
+    <% end %>
+  </div>
+  <div>
+    <h3>Usuarios</h3>
+    <div class="row">
+      <% @users.each do |element| %>
+        <div class="col-12 el-wrapper">
+          <div class="el-inner row">
+            <div class="col-10">
+              <div><%= element.name %></div>
+              <div><%= element.email %></div>
+            </div>
+            <div class="col-2">
+              <span class="col-12">
+                <%= link_to edit_user_path(element) do %>
+                  <%= fa_icon "pencil-square-o 1x" %> <span>Editar</span>
+                <% end %>
+              </span>
+              <span class="col-12">
+                <%= link_to element, method: :delete do %>
+                  <%= fa_icon "trash-o 1x" %> <span>Eliminar</span>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
