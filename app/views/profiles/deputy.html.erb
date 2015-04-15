@@ -1,4 +1,4 @@
-<div class="candidate-areas">
+<div class="candidate-areas" id="js-candidate-areas" data-area="deputy">
   <% @areas.each do |area| %>
     <% if area.name == "Gubernatura" %>
       <div class="area"><%= link_to area.name, profiles_governor_path %></div>

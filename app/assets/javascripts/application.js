@@ -44,6 +44,21 @@ $(document).ready(function() {
     });
   }
 
+  if (document.getElementById('js-candidate-areas')) {
+    var candAreEl = document.getElementById('js-candidate-areas');
+    var areaPageType = candAreEl.dataset.area;
+
+    if (areaPageType == "governor") {
+      candAreEl.scrollLeft = 0;
+    }
+    else if (areaPageType == "deputy") {
+      candAreEl.scrollLeft = candAreEl.offsetWidth + 100;
+    }
+    else if (areaPageType == "mayor") {
+      candAreEl.scrollLeft = candAreEl.offsetWidth/2 -  candAreEl.offsetWidth/5 + 10;
+    }
+  }
+
   if (document.getElementById('js-prop-editor')) {
     var editor1 = new Quill('#js-prop-editor', configs);
 
