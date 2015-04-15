@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require furatto.min
 //= require modernizr.custom
-//= require expandingPreview
 //= require isotope.min
 //= require quill
 //= require spectrum
@@ -57,12 +56,13 @@ $(document).ready(function() {
     });
   }
 
-  if (document.getElementById('preview-grid')) {
+  if (document.getElementById('js-candidate-container')) {
     $('#js-candidate-container').isotope({
       itemSelector: '.candidate-show'
     });
 
     $('.js-filter-link').on("click", function() {
+      console.log(this.dataset.filter);
       filter(this.dataset.filter);
     });
   }
@@ -161,8 +161,6 @@ $(document).ready(function() {
       $(proposals).find("input:hidden").val(this.getHTML());
     });
   }
-
-  ExpandPreview.init();
 
   $('.panel-content').scroll(function() {
     var sidebar;

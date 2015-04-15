@@ -60,9 +60,7 @@
   text-decoration: none;
 }
 
-.candidate-show.col-3 {
-  max-height: 250px;
-
+.candidate-show {
   a {
     width: 100%;
     max-height: 250px;
@@ -202,12 +200,17 @@ fieldset {
   max-height: 250px;
   height: auto;
   width: 100%;
+  position: relative;
 }
 
 .candidate-line {
-  height: 10px;
+  height: 30px;
   width: 100%;
-  margin: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .color-line {
@@ -274,8 +277,20 @@ fieldset {
   color: white;
 }
 
+.preview-fullimg.open-image-wrapper.col-12 {
+  max-height: 250px;
+}
+
+.open-info-wrapper.col-10.row {
+  overflow: auto;
+}
+
+li.candidate-show.col-3 {
+  padding-bottom: 0;
+  max-width: 250px;
+}
+
 @import "quill.snow";
 @import "spectrum";
 @import "font-awesome";
-@import "expandingThumbnail";
 @import "furatto_overrides";

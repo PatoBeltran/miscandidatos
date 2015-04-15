@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show]
 
   def new
     @candidate = Candidate.new

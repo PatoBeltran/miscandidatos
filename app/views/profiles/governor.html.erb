@@ -15,15 +15,15 @@
     <div class="filter"><%= link_to filter.abbreviation, "#", class: "js-filter-link", data: { filter: ".#{filter.abbreviation}" } %></div>
   <% end %>
 </div>
-<ul class="wrapper container row preview-grid" id="preview-grid">
+<ul class="wrapper container preview-grid row" id="js-candidate-container">
   <% @candidates.each do |candidate| %>
     <li class="candidate-show col-3 <%= candidate.political_party.abbreviation %>">
-      <%= opening_anchor_tag_for_candidate(candidate) %>
+    <%= link_to candidate, class: "candidate-inner-wrapper" do %>
         <div class="image-wrapper">
           <% if candidate.image.present? %>
-            <%= image_tag candidate.image.to_s %>
+            <%= image_tag candidate.image.to_s, class: "responsive" %>
           <% else %>
-            <%= image_tag "placeholder.jpg" %>
+            <%= image_tag "placeholder.jpg", class: "responsive" %>
           <% end %>
         </div>
         <div class="name-wrapper row">
@@ -37,7 +37,7 @@
           </div>
           <div class="category-color col-12" style="background-color: <%= candidate.political_party.color %>"></div>
         </div>
-      </a>
+      <% end %>
     </li>
   <% end %>
 </ul>
