@@ -12,12 +12,12 @@
 <div class="candidate-filters">
   <div class="filter"><%= link_to "Todos", "#", class: "js-filter-link", data: { filter: "*" } %></div>
   <% @filters.each do |filter| %>
-    <div class="filter"><%= link_to filter.city, "#", class: "js-filter-link", data: { filter: ".#{filter.city}" } %></div>
+    <div class="filter"><%= link_to filter.city, "#", class: "js-filter-link", data: { filter: ".#{filter.city.split(" ")[0].gsub!(/\./,'')}" } %></div>
   <% end %>
 </div>
 <ul class="wrapper container preview-grid row" id="js-candidate-container">
   <% @candidates.each do |candidate| %>
-    <li class="candidate-show col-3 <%= candidate.geographical_area.city %>">
+    <li class="candidate-show col-3 <%= candidate.geographical_area.city.split(" ")[0].gsub!(/\./,'') %>">
     <%= link_to candidate, class: "candidate-inner-wrapper" do %>
         <div class="image-wrapper">
           <% if candidate.image.present? %>
