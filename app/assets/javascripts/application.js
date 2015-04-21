@@ -15,6 +15,7 @@
 //= require furatto.min
 //= require modernizr.custom
 //= require isotope.min
+//= require jail.min
 //= require quill
 //= require spectrum
 //= require_tree .
@@ -28,6 +29,8 @@ function filter(klass) {
 }
 
 $(document).ready(function() {
+  $('img.lazy').jail();
+  
   var configs = {
     theme: 'snow',
   };

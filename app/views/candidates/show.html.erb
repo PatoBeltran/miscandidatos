@@ -20,7 +20,7 @@
   <div class="col-12 row">
     <div class="col-4">
       <div class="candidate-image">
-        <%= image_tag @candidate.image.present? ? @candidate.image : "placeholder.jpg" %>
+            <%= image_tag "placeholder.jpg", data: { src: @candidate.image.present? ? @candidate.image.to_s : nil }, class: "responsive lazy" %>
         <div class="candidate-line col-12" style="background-color: <%= @candidate.isGovernor? ? @candidate.political_party.color : @candidate.geographical_area.color %>"></div>
       </div>
     </div>
