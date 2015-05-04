@@ -32,7 +32,8 @@ $(document).ready(function() {
   $(function(){
     $('img.lazy').jail({
       triggerElement:'body',
-      event: 'scroll'
+      event: 'scroll',
+      timeout : 500
     });
   });
 
