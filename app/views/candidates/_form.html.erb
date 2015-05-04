@@ -92,7 +92,7 @@
       <%= f.select :geographical_area_id, GeographicalArea.all.collect {|p| [ p.city, p.id ] }, include_blank: true %>
     </div>
     <div class="col-12 row">
-      <h3 class="col-12">Trayectoría</h3>
+      <h3 class="col-12">Trayectoria</h3>
       <div class="col-12">
         <%= f.fields_for :milestones do |builder| %>
           <%= render 'milestone_fields', f: builder %>

@@ -26,11 +26,25 @@ function clearSelected(id){
 
 function filter(klass) {
   $('#js-candidate-container').isotope({ filter: klass })
+  setTimeout(function(){
+    $('img.lazy').jail({
+      triggerElement:'body',
+      event: 'scroll',
+      offset : 300
+    });
+  }, 500);
 }
 
 $(document).ready(function() {
-  $('img.lazy').jail();
-  
+  $(function(){
+    $('img.lazy').jail({
+      triggerElement:'body',
+      event: 'scroll',
+      timeout : 200,
+      offset : 300
+    });
+  });
+
   var configs = {
     theme: 'snow',
   };
@@ -75,14 +89,15 @@ $(document).ready(function() {
   }
 
   if (document.getElementById('js-candidate-container')) {
-    $('#js-candidate-container').isotope({
-      itemSelector: '.candidate-show'
-    });
+    setTimeout(function(){
+      $('#js-candidate-container').isotope({
+        itemSelector: '.candidate-show'
+      });
 
-    $('.js-filter-link').on("click", function() {
-      console.log(this.dataset.filter);
-      filter(this.dataset.filter);
-    });
+      $('.js-filter-link').on("click", function() {
+        filter(this.dataset.filter);
+      });
+    }, 500);
   }
 
   $('.line').each(function(i, item) {

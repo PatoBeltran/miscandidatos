@@ -2,7 +2,7 @@
   height: 80px;
   max-height: 80px;
   width: 100%;
-  background-color: #8E8E8E;
+  background-color: #2980b9;
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 0;
@@ -31,7 +31,7 @@
 }
 
 .candidate-filters {
-  background-color: #696969;
+  background-color: #66b1e4;
   height: 40px;
   width: 100%;
   overflow: auto;
@@ -60,10 +60,22 @@
   text-decoration: none;
 }
 
+.col-4 {
+  text-align: center;
+
+  .candidate-image {
+    display: inline-block;
+  }
+}
+
 .candidate-show {
+
+  text-align: center;
+  
   a {
     width: 100%;
     max-height: 250px;
+    max-width: 250px;
   }
 
   .candidate-inner-wrapper {
@@ -72,6 +84,7 @@
 
     img {
       max-height: 250px;
+      max-width: 250px;
       height: auto;
       width: 100%;
     }
@@ -287,7 +300,6 @@ fieldset {
 
 li.candidate-show.col-3 {
   padding-bottom: 0;
-  max-width: 250px;
 }
 
 .color-addon {
@@ -301,6 +313,9 @@ li.candidate-show.col-3 {
   border-radius: 5px;
 }
 
+.logo-img {
+  padding: 7px;
+}
 
 @import "quill.snow";
 @import "spectrum";

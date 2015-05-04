@@ -15,7 +15,7 @@
     <div class="filter"><%= link_to filter.abbreviation, "#", class: "js-filter-link", data: { filter: ".#{filter.abbreviation.split(" ")[0].split(".")[0]}" } %></div>
   <% end %>
 </div>
-<ul class="wrapper container preview-grid row" id="js-candidate-container">
+<ul class="wrapper container row" id="js-candidate-container">
   <% @candidates.each do |candidate| %>
     <li class="candidate-show col-3 <%= candidate.political_party.abbreviation.split(" ")[0].split(".")[0] %>">
     <%= link_to candidate, class: "candidate-inner-wrapper" do %>
