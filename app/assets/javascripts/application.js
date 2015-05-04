@@ -29,8 +29,13 @@ function filter(klass) {
 }
 
 $(document).ready(function() {
-  $('img.lazy').jail();
-  
+  $(function(){
+    $('img.lazy').jail({
+      triggerElement:'body',
+      event: 'scroll'
+    });
+  });
+
   var configs = {
     theme: 'snow',
   };
