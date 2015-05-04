@@ -82,14 +82,16 @@ $(document).ready(function() {
   }
 
   if (document.getElementById('js-candidate-container')) {
-    $('#js-candidate-container').isotope({
-      itemSelector: '.candidate-show'
-    });
+    setTimeout(function(){
+      $('#js-candidate-container').isotope({
+        itemSelector: '.candidate-show'
+      });
 
-    $('.js-filter-link').on("click", function() {
-      console.log(this.dataset.filter);
-      filter(this.dataset.filter);
-    });
+      $('.js-filter-link').on("click", function() {
+        console.log(this.dataset.filter);
+        filter(this.dataset.filter);
+      });
+    }, 500);
   }
 
   $('.line').each(function(i, item) {
