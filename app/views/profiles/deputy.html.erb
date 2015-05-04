@@ -2,8 +2,6 @@
   <% @areas.each do |area| %>
     <% if area.name == "Gubernatura" %>
       <div class="area"><%= link_to area.name, profiles_governor_path %></div>
-    <% elsif  area.name == "Alcaldía" %>
-      <div class="area"><%= link_to area.name, profiles_mayor_path %></div>
     <% else %>
       <div class="area area-main"><%= link_to area.name, profiles_deputy_path %></div>
     <% end %>
