@@ -88,8 +88,15 @@ $(document).ready(function() {
       });
 
       $('.js-filter-link').on("click", function() {
-        console.log(this.dataset.filter);
         filter(this.dataset.filter);
+        $(function(){
+          $('img.lazy').jail({
+            triggerElement:'body',
+            event: 'scroll',
+            timeout : 200,
+            offset : 300
+          });
+        });
       });
     }, 500);
   }
