@@ -33,7 +33,8 @@ $(document).ready(function() {
     $('img.lazy').jail({
       triggerElement:'body',
       event: 'scroll',
-      timeout : 500
+      timeout : 500,
+      offset : 300
     });
   });
 
