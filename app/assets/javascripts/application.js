@@ -26,6 +26,11 @@ function clearSelected(id){
 
 function filter(klass) {
   $('#js-candidate-container').isotope({ filter: klass })
+  $('img.lazy').jail({
+    triggerElement:'body',
+    event: 'scroll',
+    offset : 300
+  });
 }
 
 $(document).ready(function() {
@@ -89,14 +94,6 @@ $(document).ready(function() {
 
       $('.js-filter-link').on("click", function() {
         filter(this.dataset.filter);
-        $(function(){
-          $('img.lazy').jail({
-            triggerElement:'body',
-            event: 'scroll',
-            timeout : 200,
-            offset : 300
-          });
-        });
       });
     }, 500);
   }
