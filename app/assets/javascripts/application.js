@@ -26,11 +26,13 @@ function clearSelected(id){
 
 function filter(klass) {
   $('#js-candidate-container').isotope({ filter: klass })
-  $('img.lazy').jail({
-    triggerElement:'body',
-    event: 'scroll',
-    offset : 300
-  });
+  setTimeout(function(){
+    $('img.lazy').jail({
+      triggerElement:'body',
+      event: 'scroll',
+      offset : 300
+    });
+  }, 500);
 }
 
 $(document).ready(function() {
