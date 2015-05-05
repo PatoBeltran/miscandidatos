@@ -42,8 +42,8 @@
                         <h3>Trayectoria</h3>
                         <% @candidate.milestones.each do |milestone| %>
                             <div class="col-12"><%= milestone.position %></div>
-                            <div class="col-6"><%= milestone.proposals.html_safe %></div>
-                            <div class="col-6"><%= milestone.accomplished.html_safe %></div>
+                            <div class="col-6"><%= milestone.proposals.html_safe if milestone.proposals.present? %></div>
+                            <div class="col-6"><%= milestone.accomplished.html_safe if milestone.accomplished.present? %></div>
                         <% end %>
                     </div>
                 <% end %>
@@ -57,4 +57,3 @@
         </div>
     </div>
 </div>
->>>>>>> cc9446554e239681be40d18fba9ba287b2c27f53
