@@ -69,10 +69,7 @@ $(document).ready(function() {
       candAreEl.scrollLeft = 0;
     }
     else if (areaPageType == "deputy") {
-      candAreEl.scrollLeft = candAreEl.offsetWidth + 100;
-    }
-    else if (areaPageType == "mayor") {
-      candAreEl.scrollLeft = candAreEl.offsetWidth/2 -  candAreEl.offsetWidth/5 + 10;
+      candAreEl.scrollLeft = candAreEl.scrollWidth - candAreEl.clientWidth;
     }
   }
 
