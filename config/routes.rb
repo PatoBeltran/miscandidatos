@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
 
   get '/profiles/governor' => 'profiles#governor'
-  get '/profiles/deputy' => 'profiles#deputy'
   get '/profiles/mayor' => 'profiles#mayor'
 
   get '/legal' => 'pages#legal'
