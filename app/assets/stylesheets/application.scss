@@ -22,6 +22,27 @@
   opacity: .35;
 }
 
+#thumbs {
+    width: 540px;
+    margin-top:90px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: justify;
+    text-justify: distribute-all-lines;
+}
+#thumbs a {
+    vertical-align: top;
+    display: inline-block;
+    display: inline;
+    zoom: 1;
+}
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
 .area.area-main {
   opacity: 1;
 }

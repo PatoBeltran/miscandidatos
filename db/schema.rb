@@ -17,75 +17,76 @@ ActiveRecord::Schema.define(version: 20150413051939) do
   enable_extension "plpgsql"
 
   create_table "candidate_areas", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "candidates", force: true do |t|
-    t.string   "name"
+    t.string   "name",                 limit: nil
     t.text     "bio"
     t.integer  "candidate_area_id"
     t.integer  "political_party_id"
     t.integer  "geographical_area_id"
     t.integer  "user_id"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.text     "modified_by",          default: "--- []\n"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.text     "modified_by"
     t.string   "image"
     t.text     "proposals"
-    t.boolean  "active",               default: true
+    t.boolean  "active",                           default: true
   end
 
   create_table "geographical_areas", force: true do |t|
-    t.string   "state"
-    t.string   "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "state",      limit: nil
+    t.string   "city",       limit: nil
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "color"
   end
 
   create_table "milestones", force: true do |t|
-    t.string   "position"
+    t.string   "position",     limit: nil
     t.text     "proposals"
     t.text     "accomplished"
     t.integer  "candidate_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "modified_by"
   end
 
   create_table "political_parties", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "abbreviation"
+    t.string   "name",         limit: nil
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "abbreviation", limit: nil
     t.string   "color"
   end
 
   create_table "static_pages", force: true do |t|
-    t.string   "name"
-    t.string   "title"
+    t.string   "name",        limit: nil
+    t.string   "title",       limit: nil
     t.text     "content"
-    t.text     "modified_by", default: "--- []\n"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.text     "modified_by",             default: "--- []\n"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: nil, default: "",    null: false
+    t.string   "encrypted_password",     limit: nil, default: "",    null: false
+    t.string   "reset_password_token",   limit: nil
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.boolean  "admin",                  default: false
+    t.string   "name",                   limit: nil
+    t.boolean  "admin",                              default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

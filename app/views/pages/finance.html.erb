@@ -9,11 +9,15 @@
     <% end %>
   <div class="row">
   <div class="title col-12 row">
-    <h1 class="col-12"><%= @page.title %></h1>
+      <h1 class="col-12"><%= @page.title %></h1>
   </div>
   <div class="static-page-content col-12 row">
-    <%= @page.content.html_safe %>
+      <%= @page.content.html_safe %>
   </div>
+  <img src="/images/Ciudadania1.jpg" />
+  <img src="/images/Ciudadania2.jpg" />
+  <img src="/images/Ciudadania3.jpg" />
+  <img src="/images/Ciudadania4.jpg" />
   <% if user_signed_in? && @page.modified_by %>
     <hr />
     <div class="col-12">
